@@ -1,21 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
+
 import Home from './components/Home';
-import Buttons from './components/Buttons';
+import Contact from './components/Contact';
+
 
 function App() {
+
+/// j svariabls or functions will come here -->
+
   return (
     <div className="App">
-      {
-        //  uu
-        /*
-         <Home/>
-        */
-      }
+      <Home/> <br></br>
+
+ 
      
 
 
-<Buttons/>
    
     </div>
   );
