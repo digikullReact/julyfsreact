@@ -1,8 +1,11 @@
 import React from 'react'
+import './css/About.css';
+
+import cssObject from './css/Globalcss';
 
 const About = () => {
   return (
-    <div>About</div>
+    <div className='div' style={cssObject} ><h1>About</h1></div>
   )
 }
 
