@@ -25,7 +25,7 @@ import {useState} from "react";
 
 
 function App() {
-  console.log(useState(0))
+  //console.log(useState(0))
  const [counter,setCounter] =useState(0)  // {}  // []
 
  const [value,setValue] =useState("")  // {}  // []
@@ -45,9 +45,21 @@ const decrement=()=>{
 
 }
 
+const stringchange=()=>{
+
+  //const value=document.getElementById("input").value;
+ // console.log(value.toUpperCase());
+
+ setValue(value.toUpperCase());
+
+
+
+}
+
+
 const change=(event)=>{
 
-  console.log(event.target.value);
+ // console.log(event.target.value);
   setValue(event.target.value);
 
 
@@ -86,10 +98,19 @@ return(
     <div>
 
 
-<input type={"text"}  onChange={change}/>
+<input type={"text"} id={"input"}  onChange={change}/>
+
+<button  onClick={stringchange} className={"btn btn-success"}>
+ 
+  ChangeString
+    </button>
+
+    
 
 
     </div>
+
+    <h1>{value}</h1>
 
 
 
