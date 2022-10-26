@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import {useState} from "react";
+import Calc from './components/Calc';
 
 
 // what is state --->
@@ -68,7 +69,11 @@ const change=(event)=>{
 
 return(
   <div style={{display:"flex" ,justifyContent:"space-evenly" ,marginTop:"70px"}}>
-    <div>
+
+    {
+      /**
+       * 
+       * <div>
     <button onClick={increment} className={"btn btn-success"}>
  
  Increment
@@ -112,8 +117,11 @@ return(
 
     <h1>{value}</h1>
 
+       */
+    }
+    
 
-
+<Calc/>
 
   </div>
 
