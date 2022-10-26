@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import {useState} from "react";
-import Calc from './components/Calc';
+import Multiple from './components/Multiple';
 
 
 // what is state --->
@@ -116,12 +116,13 @@ return(
     </div>
 
     <h1>{value}</h1>
-
+<Calc/>
        */
     }
     
 
-<Calc/>
+<Multiple/>
+
 
   </div>
 
