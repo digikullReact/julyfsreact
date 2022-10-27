@@ -26,6 +26,20 @@ const Todo = () => {
 
    }
 
+   const removeItem=(index)=>{
+
+    console.log("Remove item clicked",index)
+
+    // Apply operation on array
+
+    // we have to find the item on the basis of index
+
+    // remove the item
+
+    // Set the new array in the state
+
+   }
+
    /*
 
  const   handleKeyPress = (event) => {
@@ -59,10 +73,18 @@ const Todo = () => {
 
             <div className={'col-md-6'}>
             <ul className={"list-group"}>
+                   {/* <TaskItems data={ele} i={i} />*/}
 
                 {
                     itemsarray.map((ele,i)=>(
-                        <TaskItems data={ele} i={i} />
+                    
+                       <li key={i}  className="list-group-item" aria-current="true"><strong>Name - </strong>{ele.name}   <strong>Finish Date -</strong> {ele.date} 
+                       <button className={"btn btn-danger"} style={{marginLeft:"20px"}} onClick={()=>removeItem(i)}>
+                        Delete
+                       </button>
+                       
+                       </li>
+
 
                     ))
                 }
