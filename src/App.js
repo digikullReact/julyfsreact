@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import {useState} from "react";
 import Multiple from './components/Multiple';
+import Todo from './components/Todo';
 
 
 // what is state --->
@@ -117,11 +118,13 @@ return(
 
     <h1>{value}</h1>
 <Calc/>
+<Multiple/>
        */
     }
     
+    <Todo/>
 
-<Multiple/>
+
 
 
   </div>

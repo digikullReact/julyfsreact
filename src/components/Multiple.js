@@ -2,6 +2,13 @@ import React, { useState } from 'react'
 
 const Multiple = () => {
 
+    const [value,setValue]=useState("");
+
+    //const prt=prompt("enter the number");
+
+   
+    //setValue(prt);
+
     const [state,setState]=useState([
         {
           "_id": "63594109cf1438874f51d9cd",
@@ -64,6 +71,20 @@ const Multiple = () => {
           "address": "261 Lawrence Avenue, Coaldale, Colorado, 7940"
         }
       ])
+
+    
+
+      
+
+      const promptMe=()=>{
+       // const prt=prompt("enter the number");
+
+       console.log(value);
+
+   
+        //setValue(prt);
+      }
+      
   return (
     <div>
 
@@ -80,6 +101,13 @@ const Multiple = () => {
 
 
         }
+
+<button onClick={promptMe}>
+
+    click To Prompt
+
+</button>
+        
 
 
     </div>
