@@ -28,15 +28,18 @@ const Todo = () => {
 
    const removeItem=(index)=>{
 
-    console.log("Remove item clicked",index)
+    //console.log("Remove item clicked",index)
 
     // Apply operation on array
 
     // we have to find the item on the basis of index
 
-    // remove the item
+    // remove the item  from an array on the basis of index
 
     // Set the new array in the state
+   itemsarray.splice(index,1);
+
+    setItemsArray([...itemsarray]);
 
    }
 
