@@ -5,6 +5,8 @@ import TaskItems from './TaskItems';
 const Todo = () => {
    // const [input,setInput]=useState("");
 
+   const  [count,setCount]=useState(0);
+
    const [task,setTask]=useState({
 
     name:"",
@@ -24,6 +26,18 @@ const Todo = () => {
     itemsarray.push(task);
     setItemsArray([...itemsarray]);
 
+    setTask({
+
+      name:"",
+      date:""
+     })
+
+   }
+
+   const increment=()=>{
+   // count++ // count =count+1
+    setCount(count+1);
+
    }
 
    const removeItem=(index)=>{
@@ -41,6 +55,16 @@ const Todo = () => {
 
     setItemsArray([...itemsarray]);
 
+   }
+
+
+   const populateEditData=(ele)=>{
+
+    setTask({
+
+      name:ele.name,
+      date:ele.date
+     })
    }
 
    /*
@@ -62,13 +86,17 @@ const Todo = () => {
             <div className={'col-md-6'}>
                 <input type={"text"} className={"form-control"} value={task.name}  name={"name"} placeholder={"Task Name"} onChange={inputChange}/> <br></br>
               {/* <input type={"date"} className={"form-control"}  value={task.date} name={"date"} onKeyDown={handleKeyPress} placeholder={"Task End Date"} onChange={inputChange}/> <br></br>*/}  
-                <input type={"date"} className={"form-control"}  value={task.date} name={"date"}  placeholder={"Task End Date"} onChange={inputChange}/> <br></br>
+                <input type={"date"} className={"form-control"}  value={task.date} name={"date"}  placeholder={"Task End Date"} onChange={inputChange}/> <br/>
 
 
 
                 <button className={"btn btn-primary"} onClick={addToItemArray}>
                     Add ToDo
                 </button>
+
+                <button className='btn btn-info' onClick={increment}>
+                        Increment
+                       </button>
 
 
             </div>
@@ -85,12 +113,24 @@ const Todo = () => {
                        <button className={"btn btn-danger"} style={{marginLeft:"20px"}} onClick={()=>removeItem(i)}>
                         Delete
                        </button>
+
+                       <button className={"btn btn-danger"} style={{marginLeft:"20px"}} onClick={function (){
+
+return populateEditData(ele);
+
+}}>
+                        Edit
+                       </button>
+
+                     
                        
                        </li>
 
 
                     ))
                 }
+
+
 
 
 </ul>
