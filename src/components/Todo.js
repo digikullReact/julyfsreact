@@ -1,18 +1,22 @@
 import React from 'react'
 import { useState } from 'react'
 import TaskItems from './TaskItems';
+import uuid from 'react-uuid';
 
 const Todo = () => {
    // const [input,setInput]=useState("");
+   const defaultState={
+
+    name:"",
+    date:"",
+    index:0,
+    id:""
+   }
 
    const  [count,setCount]=useState(0);
    const [editMode,setEditMode]=useState(false);
 
-   const [task,setTask]=useState({
-
-    name:"",
-    date:""
-   })
+   const [task,setTask]=useState(defaultState)
    
     const [itemsarray,setItemsArray]=useState([]);
 
@@ -24,23 +28,22 @@ const Todo = () => {
    }
 
    const addToItemArray=()=>{
+
+    // generate random guid
+    let uid=uuid();  // generates a unique id --->
+    task.id=uid;
+    // and will attach to the task 
+    // then we will insert it in the array item ---
+     
+   //  console.log(task);
     itemsarray.push(task);
     setItemsArray([...itemsarray]);
 
-    setTask({
-
-      name:"",
-      date:"",
-      index:0
-     })
+    setTask(defaultState)
 
    }
 
-   const increment=()=>{
-   // count++ // count =count+1
-    setCount(count+1);
 
-   }
 
    const removeItem=(index)=>{
 
@@ -66,7 +69,8 @@ const Todo = () => {
 
       name:ele.name,
       date:ele.date,
-      index:i
+      index:i,
+      id:ele.id
      })
 
      // We will also enable the edit mode
@@ -75,13 +79,45 @@ const Todo = () => {
    }
 
    const editItem=()=>{
-     console.log(task)
-     itemsarray.splice(task.index,1);
 
-    setItemsArray([...itemsarray,task]);
+    console.log(task);
+
+    /*
+    First Way
+     itemsarray.splice(task.index, 1);
+     itemsarray.splice(task.index, 0, task);
+
+     setItemsArray([...itemsarray]);
+     */
+
+      //itemsarray.splice(task.index,1);
+
+//console.log(itemsarray[task.index]);
+
+//
+
+/*
+Second way
+itemsarray[task.index]=task
+
+setItemsArray([...itemsarray]);
+*/
+ 
+ 
+    //setItemsArray([...itemsarray,task]);
 
      // We have to delete the old data 
      // We have to enter the new data --->
+
+/**third way */
+
+const filteredData=itemsarray.filter(ele=>ele.id!==task.id)
+//filteredData[task.index]=task
+
+filteredData.push(task);
+setItemsArray([...filteredData]);
+
+
    }
 
    /*
@@ -129,7 +165,7 @@ Add ToDo
                 {
                     itemsarray.map((ele,i)=>(
                     
-                       <li key={i}  className="list-group-item" aria-current="true"><strong>Name - </strong>{ele.name}   <strong>Finish Date -</strong> {ele.date} 
+                       <li key={ele.id}  className="list-group-item" aria-current="true"><strong>Name - </strong>{ele.name}   <strong>Finish Date -</strong> {ele.date} 
                        <button className={"btn btn-danger"} style={{marginLeft:"20px"}} onClick={()=>removeItem(i)}>
                         Delete
                        </button>
