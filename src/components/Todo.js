@@ -30,7 +30,8 @@ const Todo = () => {
     setTask({
 
       name:"",
-      date:""
+      date:"",
+      index:0
      })
 
    }
@@ -59,12 +60,13 @@ const Todo = () => {
    }
 
 
-   const populateEditData=(ele)=>{
+   const populateEditData=(ele,i)=>{
 
     setTask({
 
       name:ele.name,
-      date:ele.date
+      date:ele.date,
+      index:i
      })
 
      // We will also enable the edit mode
@@ -74,6 +76,9 @@ const Todo = () => {
 
    const editItem=()=>{
      console.log(task)
+     itemsarray.splice(task.index,1);
+
+    setItemsArray([...itemsarray,task]);
 
      // We have to delete the old data 
      // We have to enter the new data --->
@@ -131,7 +136,7 @@ Add ToDo
 
                        <button className={"btn btn-danger"} style={{marginLeft:"20px"}} onClick={function (){
 
-return populateEditData(ele);
+return populateEditData(ele,i);
 
 }}>
                         Edit
