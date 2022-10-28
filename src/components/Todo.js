@@ -6,6 +6,7 @@ const Todo = () => {
    // const [input,setInput]=useState("");
 
    const  [count,setCount]=useState(0);
+   const [editMode,setEditMode]=useState(false);
 
    const [task,setTask]=useState({
 
@@ -65,6 +66,17 @@ const Todo = () => {
       name:ele.name,
       date:ele.date
      })
+
+     // We will also enable the edit mode
+
+     setEditMode(true);
+   }
+
+   const editItem=()=>{
+     console.log(task)
+
+     // We have to delete the old data 
+     // We have to enter the new data --->
    }
 
    /*
@@ -88,16 +100,19 @@ const Todo = () => {
               {/* <input type={"date"} className={"form-control"}  value={task.date} name={"date"} onKeyDown={handleKeyPress} placeholder={"Task End Date"} onChange={inputChange}/> <br></br>*/}  
                 <input type={"date"} className={"form-control"}  value={task.date} name={"date"}  placeholder={"Task End Date"} onChange={inputChange}/> <br/>
 
+               {
+                editMode?
 
+<button className={"btn btn-primary"} onClick={editItem}>
+Edit ToDo
+</button> : <button className={"btn btn-primary"} onClick={addToItemArray}>
+Add ToDo
+</button>
+               }
 
-                <button className={"btn btn-primary"} onClick={addToItemArray}>
-                    Add ToDo
-                </button>
+            
 
-                <button className='btn btn-info' onClick={increment}>
-                        Increment
-                       </button>
-
+           
 
             </div>
 
