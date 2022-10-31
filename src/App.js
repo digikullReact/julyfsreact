@@ -3,6 +3,7 @@ import './App.css';
 import {useState} from "react";
 import Multiple from './components/Multiple';
 import Todo from './components/Todo';
+import Propparent from './components/Propparent';
 
 
 // what is state --->
@@ -119,10 +120,12 @@ return(
     <h1>{value}</h1>
 <Calc/>
 <Multiple/>
+    <Todo name={counter}/>
        */
     }
     
-    <Todo/>
+
+<Propparent/>
 
 
 

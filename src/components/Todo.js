@@ -3,7 +3,7 @@ import { useState } from 'react'
 import TaskItems from './TaskItems';
 import uuid from 'react-uuid';
 
-const Todo = () => {
+const Todo = (props) => {
    // const [input,setInput]=useState("");
    const defaultState={
 
@@ -56,9 +56,15 @@ const Todo = () => {
     // remove the item  from an array on the basis of index
 
     // Set the new array in the state
-   itemsarray.splice(index,1);
+   itemsarray.splice(index,1);  // OXCEEF
 
-    setItemsArray([...itemsarray]);
+   let newArr=[];  //
+   for (let i=0;i<itemsarray.length;i++){
+    newArr.push(itemsarray[i]);
+   }
+
+    //setItemsArray([...itemsarray]);
+    setItemsArray(newArr);
 
    }
 
@@ -116,6 +122,7 @@ const filteredData=itemsarray.filter(ele=>ele.id!==task.id)
 
 filteredData.push(task);
 setItemsArray([...filteredData]);
+setEditMode(false); // changed to add mode 
 
 
    }
