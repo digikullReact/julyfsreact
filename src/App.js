@@ -4,6 +4,8 @@ import {useState} from "react";
 import Multiple from './components/Multiple';
 import Todo from './components/Todo';
 import Propparent from './components/Propparent';
+import Increment from './components/Increment';
+import Decrement from './components/Decrement';
 
 
 // what is state --->
@@ -36,6 +38,7 @@ function App() {
 
 
 const increment=()=>{
+  //counter++ // counter =counter+1
 
   setCounter(counter+1)
 
@@ -121,12 +124,15 @@ return(
 <Calc/>
 <Multiple/>
     <Todo name={counter}/>
+    <Propparent/>
        */
     }
     
+<h1>{counter}</h1>
 
-<Propparent/>
+<Increment increment={increment} />
 
+<Decrement decrement={decrement}/>
 
 
 

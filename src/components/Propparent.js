@@ -30,3 +30,10 @@ const Propparent = () => {
 }
 
 export default Propparent
+
+// Create two components 
+
+// IncrementComponent  --->will incremented values  -->incrrmeent button
+// Decrementcomponent  --->will decrement values  --->decrement button
+
+// App component   --->you will have the counter which needs to change
